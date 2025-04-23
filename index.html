@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom Bazaar - Premium Indian Flowers & Soil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #4CAF50;
+            --primary-light: #81C784;
+            --primary-dark: #388E3C;
+            --accent: #FF5722;
+            --text-dark: #212121;
+            --text-medium: #424242;
+            --text-light: #757575;
+            --background: #FFFFFF;
+            --background-light: #F5F5F5;
+            --border: #E0E0E0;
+            --success: #4CAF50;
+            --error: #F44336;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #E64A19;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 2rem;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            padding-right: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 1.2rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            color: var(--primary);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-container {
+            border-top: 1px solid var(--border);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links li {
+            margin-right: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1589123053646-4e8c4c8f7a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+        }
+        
+        /* Categories */
+        .section {
+            padding: 3rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .category-name {
+            padding: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img-container {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-name {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .stars {
+            color: #FFC107;
+            margin-right: 0.5rem;
+        }
+        
+        .review-count {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .product-actions {
+            margin-top: auto;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 0.6rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Cart Dropdown */
+        .cart-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .cart-dropdown.show {
+            display: block;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+        }
+        
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .cart-quantity-btn {
+            width: 20px;
+            height: 20px;
+            background: var(--background-light);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .cart-quantity-btn:hover {
+            background: var(--border);
+        }
+        
+        .cart-quantity {
+            font-size: 0.8rem;
+        }
+        
+        .cart-footer {
+            text-align: center;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-top: 0.5rem;
+        }
+        
+        .cart-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .cart-btn {
+            flex: 1;
+            padding: 0.6rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        .checkout-btn {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .checkout-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .clear-btn {
+            background: var(--background-light);
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+        
+        .clear-btn:hover {
+            background: var(--border);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 1rem 0;
+            color: var(--text-light);
+        }
+        
+        /* Login Sidebar */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .login-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .login-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            padding: 2rem;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+        }
+        
+        .login-sidebar.show {
+            right: 0;
+        }
+        
+        .login-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+        
+        .login-close:hover {
+            color: var(--text-dark);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .login-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .login-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .login-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .login-tab {
+            flex: 1;
+            padding: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .login-tab.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .login-form, .register-form {
+            display: none;
+        }
+        
+        .login-form.active, .register-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .form-footer a {
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .social-login-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .social-login-title::before, .social-login-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: var(--border);
+        }
+        
+        .social-login-title::before {
+            left: 0;
+        }
+        
+        .social-login-title::after {
+            right: 0;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .facebook {
+            background: #3b5998;
+        }
+        
+        .google {
+            background: #db4437;
+        }
+        
+        .twitter {
+            background: #1da1f2;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--background-light);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Product Detail Modal */
+        .product-detail-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .product-detail-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .product-detail-modal {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .product-detail-overlay.show .product-detail-modal {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .product-detail-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        
+        .product-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .product-detail-image {
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .product-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-detail-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-detail-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .product-detail-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .product-detail-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-detail-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+        
+        .product-detail-specs {
+            margin-bottom: 1.5rem;
+        }
+        
+        .spec-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+        
+        .spec-list {
+            list-style: none;
+        }
+        
+        .spec-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .spec-label {
+            width: 150px;
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+        
+        .spec-value {
+            flex: 1;
+            color: var(--text-dark);
+        }
+        
+        .product-detail-actions {
+            margin-top: auto;
+        }
+        
+        .product-detail-quantity {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .quantity-label {
+            margin-right: 1rem;
+            font-weight: 500;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--background-light);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-medium);
+        }
+        
+        .quantity-btn:hover {
+            background: var(--border);
+        }
+        
+        .quantity-input {
+            width: 50px;
+            height: 36px;
+            border: none;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .product-detail-btn {
+            width: 100%;
+            padding: 0.8rem;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            margin-bottom: 0.8rem;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .buy-now-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+        
+        .buy-now-btn:hover {
+            background: #E64A19;
+        }
+        
+        /* Payment Success Modal */
+        .payment-success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .payment-success-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .payment-success-modal {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 2rem;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .payment-success-overlay.show .payment-success-modal {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2.5rem;
+            animation: scaleIn 0.5s ease;
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .success-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .success-message {
+            font-size: 1rem;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .order-details {
+            background: var(--background-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .order-number {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .order-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .order-info-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .order-info-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.2rem;
+        }
+        
+        .order-info-value {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .success-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .continue-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .continue-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .track-btn {
+            background: white;
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+        
+        .track-btn:hover {
+            background: var(--background-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .search-bar {
+                width: 100%;
+                max-width: none;
+                margin: 0 0 1rem 0;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.3rem 0.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .login-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .product-detail-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-detail-image {
+                height: 300px;
+                border-radius: 8px 8px 0 0;
+            }
+            
+            .order-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .success-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-seedling"></i>
+                Blossom Bazaar
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for flowers, soil, and more...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="header-actions">
+                <button class="action-btn" id="login-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                
+                <button class="action-btn" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                    
+                    <div class="cart-dropdown" id="cart-dropdown">
+                        <div class="cart-header">
+                            <span class="cart-title">Your Cart</span>
+                            <span class="cart-count-text">0 items</span>
+                        </div>
+                        
+                        <div class="cart-items" id="cart-items">
+                            <div class="empty-cart">Your cart is empty</div>
+                        </div>
+                        
+                        <div class="cart-footer">
+                            <div class="cart-total">
+                                <span>Total:</span>
+                                <span id="cart-total">₹0.00</span>
+                            </div>
+                            
+                            <div class="cart-buttons">
+                                <button class="cart-btn clear-btn" id="clear-cart">Clear</button>
+                                <button class="cart-btn checkout-btn" id="checkout-btn">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#flowers">Indian Flowers</a></li>
+                    <li><a href="#soil">Fertile Soil</a></li>
+                    <li><a href="#">Garden Tools</a></li>
+                    <li><a href="#">Plant Care</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover the Beauty of Indian Flowers</h1>
+                <p>Premium quality flowers and soil for your garden delivered to your doorstep</p>
+                <a href="#flowers" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Find exactly what you're looking for</p>
+            </div>
+            
+            <div class="categories">
+                <a href="#flowers" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Flowers" class="category-img">
+                    <p class="category-name">Indian Flowers</p>
+                </a>
+                
+                <a href="#soil" class="category-card">
+                    <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\fertile soil.webp"alt="Soil" class="category-img">
+                    <p class="category-name">Fertile Soil</p>
+                </a>
+                
+                <a href="#seeds" class="category-card">
+                    <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\planting-seeds.webp" alt="seeds" class="category-img">
+                    <p class="category-name">Seeds</p>
+                </a>
+                
+                <a href="#Garden Tools" class="category-card">
+                    <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\garden tools.webp" alt="Tools" class="category-img">
+                    <p class="category-name">Garden Tools</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="flowers" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Indian Flowers</h2>
+                <p class="section-subtitle">Authentic flowers from across India</p>
+            </div>
+            
+            <div class="products">
+                <div class="product-card" data-id="lotus" data-name="Indian Lotus (Nelumbo nucifera)" data-price="499">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\indian_lotus.webp" alt="Indian Lotus" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Indian Lotus (Nelumbo nucifera)</h3>
+                        <p class="product-price">₹499.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">128 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="jasmine" data-name="Jasmine (Mogra)" data-price="299">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\jasmine.webp" alt="Jasmine" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Jasmine (Mogra)</h3>
+                        <p class="product-price">₹299.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-count">245 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="marigold" data-name="Marigold (Genda Phool)" data-price="199">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\marigold.webp" alt="Marigold" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Marigold (Genda Phool)</h3>
+                        <p class="product-price">₹199.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-count">187 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="rose" data-name="Indian Rose (Gulab)" data-price="349">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\roses.webp" alt="Indian Rose" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Indian Rose (Gulab)</h3>
+                        <p class="product-price">₹349.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">312 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="hibiscus" data-name="Hibiscus (Gurhal)" data-price="249">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\hibiscus.webp"alt="Hibiscus" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Hibiscus (Gurhal)</h3>
+                        <p class="product-price">₹249.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-count">156 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="bougainvillea" data-name="Bougainvillea (Kagaz ke Phool)" data-price="399">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\kaagaz_ka_phool.webp" alt="Bougainvillea" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bougainvillea (Kagaz ke Phool)</h3>
+                        <p class="product-price">₹399.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-count">142 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="soil" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Premium Fertile Soil</h2>
+                <p class="section-subtitle">Quality soil for healthy plants</p>
+            </div>
+            
+            <div class="products">
+                <div class="product-card" data-id="garden-soil" data-name="Premium Garden Soil Mix (5kg)" data-price="599">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\garden_soil.webp" alt="Garden Soil" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Premium Garden Soil Mix (5kg)</h3>
+                        <p class="product-price">₹599.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">342 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="potting-mix" data-name="Indoor Plant Potting Mix (3kg)" data-price="449">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\indoor potting mix.webp"alt="Potting Mix" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Indoor Plant Potting Mix (3kg)</h3>
+                        <p class="product-price">₹449.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-count">218 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="vermicompost" data-name="Vermicompost (3kg)" data-price="399">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\vermicompost.webp" alt="Vermicompost" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vermicompost (3kg)</h3>
+                        <p class="product-price">₹399.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">247 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="seeds" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Healthy Seeds</h2>
+                <p class="section-subtitle">Give your plant a healthy life !</p>
+            </div>
+    
+            <div class="products">
+                <!-- Lotus Seeds -->
+                <div class="product-card" data-id="lotus seed" data-name="lotus seed" data-price="60">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\lotus-seeds.webp" alt="Lotus Seed" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lotus Seeds (10 seeds)</h3>
+                        <p class="product-price">₹60.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">133 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Rose Seeds -->
+                <div class="product-card" data-id="rose seeds" data-name="rose seeds" data-price="100">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\Rose-seeds.webp" alt="Rose Seed" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rose Seeds (10 seeds)</h3>
+                        <p class="product-price">₹100.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-count">193 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Sunflower Seeds -->
+                <div class="product-card" data-id="sunflower seeds" data-name="sunflower seeds" data-price="80">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\sunflower-seeds.webp" alt="Sunflower Seed" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sunflower Seeds (10 seeds)</h3>
+                        <p class="product-price">₹80.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="review-count">87 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Garden tools" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Garden Tools</h2>
+                <p class="section-subtitle">Make your garden</p>
+            </div>
+    
+            <div class="products">
+                <!-- Lotus Seeds -->
+                <div class="product-card" data-id="Spade" data-name="Spade" data-price="60">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\Spade.webp" alt="Spade" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Spade</h3>
+                        <p class="product-price">₹40.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">133 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Rose Seeds -->
+                <div class="product-card" data-id="watering can" data-name="watering can" data-price="100">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\watering can.webp" alt="watering can" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">watering can </h3>
+                        <p class="product-price">₹100.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-count">193 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Sunflower Seeds -->
+                <div class="product-card" data-id="plant pots" data-name="plant pots" data-price="80">
+                    <div class="product-img-container">
+                        <img src="C:\Users\Invictus\OneDrive\Desktop\Blossom Baazar\plant pots.webp" alt="plant pots" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">plant pots</h3>
+                        <p class="product-price">₹80.00</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="review-count">87 reviews</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Shop -->
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#flowers">Indian Flowers</a></li>
+                        <li><a href="#soil">Fertile Soil</a></li>
+                        <li><a href="#">Garden Tools</a></li>
+                        <li><a href="#">Plant Care</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Connect With Us -->
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+                    </ul>
+                </div>
+    
+                <!-- About Us (Optional Addition) -->
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <p>&copy; 2025 Blossom Bazaar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Login Sidebar -->
+    <div class="login-overlay" id="login-overlay"></div>
+    <div class="login-sidebar" id="login-sidebar">
+        <button class="login-close" id="login-close">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="login-header">
+            <h2 class="login-title">Welcome to Blossom Bazaar</h2>
+            <p class="login-subtitle">Sign in to your account or create a new one</p>
+        </div>
+        
+        <div class="login-tabs">
+            <div class="login-tab active" id="login-tab">Sign In</div>
+            <div class="login-tab" id="register-tab">Register</div>
+        </div>
+        
+        <div class="login-form active" id="login-form">
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-input" placeholder="Enter your password">
+            </div>
+            
+            <button class="btn" style="width: 100%;">Sign In</button>
+            
+            <div class="form-footer">
+                <a href="#">Forgot your password?</a>
+            </div>
+            
+            <div class="social-login">
+                <p class="social-login-title">Or sign in with</p>
+                <div class="social-buttons">
+                    <div class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-btn google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="social-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="register-form" id="register-form">
+            <div class="form-group">
+                <label for="reg-name" class="form-label">Full Name</label>
+                <input type="text" id="reg-name" class="form-input" placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-email" class="form-label">Email Address</label>
+                <input type="email" id="reg-email" class="form-input" placeholder="Enter your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-password" class="form-label">Password</label>
+                <input type="password" id="reg-password" class="form-input" placeholder="Create a password">
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-confirm" class="form-label">Confirm Password</label>
+                <input type="password" id="reg-confirm" class="form-input" placeholder="Confirm your password">
+            </div>
+            
+            <button class="btn" style="width: 100%;">Register</button>
+            
+            <div class="form-footer">
+                <p>By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Detail Modal -->
+    <div class="product-detail-overlay" id="product-detail-overlay">
+        <button class="product-detail-close" id="product-detail-close">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="product-detail-modal" id="product-detail-modal">
+            <!-- Content will be dynamically populated -->
+        </div>
+    </div>
+    
+    <!-- Payment Success Modal -->
+    <div class="payment-success-overlay" id="payment-success-overlay">
+        <div class="payment-success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h2 class="success-title">Payment Successful!</h2>
+            <p class="success-message">Your order has been placed successfully. We'll send you an email confirmation shortly.</p>
+            
+            <div class="order-details">
+                <div class="order-number">Order #BB78945612</div>
+                
+                <div class="order-info">
+                    <div class="order-info-item">
+                        <div class="order-info-label">Date</div>
+                        <div class="order-info-value" id="order-date">March 25, 2025</div>
+                    </div>
+                    
+                    <div class="order-info-item">
+                        <div class="order-info-label">Payment Method</div>
+                        <div class="order-info-value" id="payment-method">Credit Card</div>
+                    </div>
+                    
+                    <div class="order-info-item">
+                        <div class="order-info-label">Total Amount</div>
+                        <div class="order-info-value" id="order-total">₹1,247.00</div>
+                    </div>
+                    
+                    <div class="order-info-item">
+                        <div class="order-info-label">Delivery Estimate</div>
+                        <div class="order-info-value">3-5 business days</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="success-actions">
+                <button class="success-btn continue-btn" id="continue-shopping">Continue Shopping</button>
+                <button class="success-btn track-btn">Track Order</button>
+            </div>
+        </div>
+    </div>
+   <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>  
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cart functionality
+            const cartBtn = document.getElementById('cart-btn');
+            const cartDropdown = document.getElementById('cart-dropdown');
+            const cartItems = document.getElementById('cart-items');
+            const cartCountElement = document.querySelector('.cart-count');
+            const cartCountTextElement = document.querySelector('.cart-count-text');
+            const cartTotalElement = document.getElementById('cart-total');
+            const clearCartBtn = document.getElementById('clear-cart');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+            // Product Detail Modal
+            const productCards = document.querySelectorAll('.product-card');
+            const productDetailOverlay = document.getElementById('product-detail-overlay');
+            const productDetailModal = document.getElementById('product-detail-modal');
+            const productDetailClose = document.getElementById('product-detail-close');
+            
+            // Payment Success Modal
+            const paymentSuccessOverlay = document.getElementById('payment-success-overlay');
+            const continueShoppingBtn = document.getElementById('continue-shopping');
+            
+            let cart = [];
+            
+            // Product details data
+            const productDetails = {
+                'lotus': {
+                    name: 'Indian Lotus (Nelumbo nucifera)',
+                    price: 499,
+                    image: 'https://images.unsplash.com/photo-1606293926249-9efe73a6a199?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'The sacred lotus is an aquatic plant that plays a central role in Indian culture and religion. It is the national flower of India and symbolizes purity, beauty, and divinity.',
+                    specs: {
+                        'Age': '2-3 years',
+                        'Suitable Soil': 'Loamy, clay-rich soil with high organic content',
+                        'Sunlight Requirement': 'Full sun (6-8 hours daily)',
+                        'Fertility': 'Moderate to high fertility needs',
+                        'Seasonal': 'Perennial, blooms in summer and early autumn',
+                        'Water Needs': 'Aquatic plant, needs standing water',
+                        'Care Level': 'Moderate'
+                    }
+                },
+                'jasmine': {
+                    name: 'Jasmine (Mogra)',
+                    price: 299,
+                    image: 'https://images.unsplash.com/photo-1591826538510-7086ef758060?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'Jasmine is a fragrant flowering plant widely used in Indian culture for religious ceremonies, perfumes, and garlands. Its sweet scent is most potent at night.',
+                    specs: {
+                        'Age': '1-2 years',
+                        'Suitable Soil': 'Well-draining, fertile soil',
+                        'Sunlight Requirement': 'Partial to full sun',
+                        'Fertility': 'Moderate fertility needs',
+                        'Seasonal': 'Perennial, blooms primarily in summer',
+                        'Water Needs': 'Regular watering, keep soil moist',
+                        'Care Level': 'Easy to moderate'
+                    }
+                },
+                'marigold': {
+                    name: 'Marigold (Genda Phool)',
+                    price: 199,
+                    image: 'https://images.unsplash.com/photo-1508895052242-598e39a4a113?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'Marigold is extensively used in Indian religious ceremonies and festivals. These bright orange and yellow flowers are considered auspicious and are used for decoration during weddings and festivals.',
+                    specs: {
+                        'Age': '6-8 months',
+                        'Suitable Soil': 'Well-draining soil, tolerates poor soil',
+                        'Sunlight Requirement': 'Full sun',
+                        'Fertility': 'Low to moderate fertility needs',
+                        'Seasonal': 'Annual, blooms in summer and autumn',
+                        'Water Needs': 'Moderate watering, drought-tolerant',
+                        'Care Level': 'Easy'
+                    }
+                },
+                'rose': {
+                    name: 'Indian Rose (Gulab)',
+                    price: 349,
+                    image: 'https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'The rose holds a special place in Indian culture and is widely used in perfumes, medicines, and religious ceremonies. Indian roses are known for their strong fragrance and vibrant colors.',
+                    specs: {
+                        'Age': '1-2 years',
+                        'Suitable Soil': 'Rich, well-draining soil',
+                        'Sunlight Requirement': 'Full sun (at least 6 hours)',
+                        'Fertility': 'High fertility needs',
+                        'Seasonal': 'Perennial, blooms in spring and autumn',
+                        'Water Needs': 'Regular deep watering',
+                        'Care Level': 'Moderate'
+                    }
+                },
+                'hibiscus': {
+                    name: 'Hibiscus (Gurhal)',
+                    price: 249,
+                    image: 'https://images.unsplash.com/photo-1591378603223-e15b45a81640?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'Hibiscus is widely used in religious ceremonies in India. The flowers are offered to deities, especially to Goddess Kali and Lord Ganesha. It is also used in Ayurvedic medicine and hair care.',
+                    specs: {
+                        'Age': '1-2 years',
+                        'Suitable Soil': 'Rich, well-draining soil',
+                        'Sunlight Requirement': 'Full to partial sun',
+                        'Fertility': 'Moderate fertility needs',
+                        'Seasonal': 'Perennial, blooms year-round in tropical conditions',
+                        'Water Needs': 'Regular watering, keep soil moist',
+                        'Care Level': 'Easy to moderate'
+                    }
+                },
+                'bougainvillea': {
+                    name: 'Bougainvillea (Kagaz ke Phool)',
+                    price: 399,
+                    image: 'https://images.unsplash.com/photo-1528492501711-cab264c575ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'Bougainvillea is a popular ornamental plant in India, known for its vibrant paper-like bracts. It is widely used for landscaping and can be seen adorning walls, fences, and arches across the country.',
+                    specs: {
+                        'Age': '2-3 years',
+                        'Suitable Soil': 'Well-draining, slightly acidic soil',
+                        'Sunlight Requirement': 'Full sun',
+                        'Fertility': 'Low to moderate fertility needs',
+                        'Seasonal': 'Perennial, blooms multiple times a year',
+                        'Water Needs': 'Low water needs, drought-tolerant',
+                        'Care Level': 'Easy'
+                    }
+                },
+                'garden-soil': {
+                    name: 'Premium Garden Soil Mix (5kg)',
+                    price: 599,
+                    image: 'https://images.unsplash.com/photo-1585314540237-13cb52fe9e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'Our premium garden soil mix is specially formulated for Indian gardens. It contains a balanced blend of organic matter, sand, and clay to provide optimal growing conditions for a wide range of plants.',
+                    specs: {
+                        'Type': 'All-purpose garden soil',
+                        'Composition': 'Organic compost, river sand, red soil, coco peat',
+                        'pH Level': 'Balanced (6.5-7.0)',
+                        'Suitable For': 'Outdoor gardens, raised beds, large containers',
+                        'Nutrient Content': 'High in organic matter and essential nutrients',
+                        'Drainage': 'Good drainage properties',
+                        'Weight': '5kg'
+                    }
+                },
+                'potting-mix': {
+                    name: 'Indoor Plant Potting Mix (3kg)',
+                    price: 449,
+                    image: 'https://images.unsplash.com/photo-1585314540237-13cb52fe9e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'This specialized potting mix is designed for indoor plants. It provides excellent drainage while retaining enough moisture for healthy plant growth. Perfect for houseplants, herbs, and small flowering plants.',
+                    specs: {
+                        'Type': 'Indoor potting mix',
+                        'Composition': 'Coco peat, perlite, vermiculite, organic compost',
+                        'pH Level': 'Slightly acidic (6.0-6.5)',
+                        'Suitable For': 'Indoor plants, small to medium pots',
+                        'Nutrient Content': 'Balanced nutrients for slow release',
+                        'Drainage': 'Excellent drainage with moisture retention',
+                        'Weight': '3kg'
+                    }
+                },
+                'vermicompost': {
+                    name: 'Vermicompost (3kg)',
+                    price: 399,
+                    image: 'https://images.unsplash.com/photo-1585314540237-13cb52fe9e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    description: 'Our organic vermicompost is produced by earthworms from organic waste. It is rich in nutrients and beneficial microorganisms that improve soil health and plant growth. Ideal for organic gardening.',
+                    specs: {
+                        'Type': 'Organic fertilizer',
+                        'Composition': '100% organic earthworm castings',
+                        'pH Level': 'Neutral (7.0)',
+                        'Suitable For': 'All plants, vegetables, flowers, trees',
+                        'Nutrient Content': 'High in nitrogen, phosphorus, potassium, and micronutrients',
+                        'Application': 'Mix with soil or use as top dressing',
+                        'Weight': '3kg'
+                    }
+                }
+            };
+            
+            // Toggle cart dropdown
+            cartBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                cartDropdown.classList.toggle('show');
+            });
+            
+            // Close cart dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!cartDropdown.contains(e.target) && e.target !== cartBtn) {
+                    cartDropdown.classList.remove('show');
+                }
+            });
+            
+            // Add to cart
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent opening product detail when clicking add to cart
+                    const productCard = this.closest('.product-card');
+                    const productId = productCard.dataset.id;
+                    const productName = productCard.dataset.name;
+                    const productPrice = parseFloat(productCard.dataset.price);
+                    const productImg = productCard.querySelector('.product-img').src;
+                    
+                    // Check if product is already in cart
+                    const existingItem = cart.find(item => item.id === productId);
+                    
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            image: productImg,
+                            quantity: 1
+                        });
+                    }
+                    
+                    updateCart();
+                    
+                    // Show cart dropdown
+                    cartDropdown.classList.add('show');
+                    
+                    // Animation effect
+                    this.textContent = 'Added!';
+                    this.style.background = '#4CAF50';
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.style.background = '';
+                    }, 1000);
+                });
+            });
+            
+            // Update cart
+            function updateCart() {
+                // Clear cart items
+                cartItems.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+                    cartCountElement.textContent = '0';
+                    cartCountTextElement.textContent = '0 items';
+                    cartTotalElement.textContent = '₹0.00';
+                    return;
+                }
+                
+                // Add items to cart
+                cart.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <p class="cart-item-name">${item.name}</p>
+                            <p class="cart-item-price">₹${item.price.toFixed(2)}</p>
+                            <div class="cart-item-quantity">
+                                <button class="cart-quantity-btn decrease" data-id="${item.id}">-</button>
+                                <span class="cart-quantity">${item.quantity}</span>
+                                <button class="cart-quantity-btn increase" data-id="${item.id}">+</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(cartItemElement);
+                });
+                
+                // Update cart count
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+                cartCountTextElement.textContent = `${totalItems} item${totalItems !== 1 ? 's' : ''}`;
+                
+                // Update cart total
+                const total = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                cartTotalElement.textContent = `₹${total.toFixed(2)}`;
+                
+                // Add event listeners to quantity buttons
+                const decreaseButtons = document.querySelectorAll('.cart-quantity-btn.decrease');
+                const increaseButtons = document.querySelectorAll('.cart-quantity-btn.increase');
+                
+                decreaseButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item.quantity > 1) {
+                            item.quantity--;
+                        } else {
+                            cart = cart.filter(item => item.id !== id);
+                        }
+                        
+                        updateCart();
+                    });
+                });
+                
+                increaseButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        item.quantity++;
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Clear cart
+            clearCartBtn.addEventListener('click', function() {
+                cart = [];
+                updateCart();
+            });
+            
+            // Checkout
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+                
+                // Save cart to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Redirect to checkout page
+                window.location.href = 'checkout.html';
+            });
+            
+            // Login sidebar functionality
+            const loginBtn = document.getElementById('login-btn');
+            const loginSidebar = document.getElementById('login-sidebar');
+            const loginOverlay = document.getElementById('login-overlay');
+            const loginClose = document.getElementById('login-close');
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            // Open login sidebar
+            loginBtn.addEventListener('click', function() {
+                loginSidebar.classList.add('show');
+                loginOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close login sidebar
+            function closeLoginSidebar() {
+                loginSidebar.classList.remove('show');
+                loginOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            
+            loginClose.addEventListener('click', closeLoginSidebar);
+            loginOverlay.addEventListener('click', closeLoginSidebar);
+            
+            // Switch between login and register tabs
+            loginTab.addEventListener('click', function() {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+                loginForm.classList.add('active');
+                registerForm.classList.remove('active');
+            });
+            
+            registerTab.addEventListener('click', function() {
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
+                registerForm.classList.add('active');
+                loginForm.classList.remove('active');
+            });
+            
+            // Product Detail Modal
+            productCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+                        return; // Don't open modal when clicking add to cart button
+                    }
+                    
+                    const productId = this.dataset.id;
+                    const product = productDetails[productId];
+                    
+                    if (product) {
+                        // Populate modal with product details
+                        productDetailModal.innerHTML = `
+                            <div class="product-detail-content">
+                                <div class="product-detail-image">
+                                    <img src="${product.image}" alt="${product.name}">
+                                </div>
+                                <div class="product-detail-info">
+                                    <h2 class="product-detail-name">${product.name}</h2>
+                                    <p class="product-detail-price">₹${product.price.toFixed(2)}</p>
+                                    <div class="product-detail-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="review-count">128 reviews</span>
+                                    </div>
+                                    <p class="product-detail-description">${product.description}</p>
+                                    
+                                    <div class="product-detail-specs">
+                                        <h3 class="spec-title">Specifications</h3>
+                                        <ul class="spec-list">
+                                            ${Object.entries(product.specs).map(([key, value]) => `
+                                                <li class="spec-item">
+                                                    <span class="spec-label">${key}:</span>
+                                                    <span class="spec-value">${value}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-detail-actions">
+                                        <div class="product-detail-quantity">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity-controls">
+                                                <button class="quantity-btn" id="decrease-quantity">-</button>
+                                                <input type="text" class="quantity-input" id="product-quantity" value="1" readonly>
+                                                <button class="quantity-btn" id="increase-quantity">+</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <button class="product-detail-btn add-to-cart-btn" data-id="${productId}">Add to Cart</button>
+                                        <button class="product-detail-btn buy-now-btn">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Show modal
+                        productDetailOverlay.classList.add('show');
+                        document.body.style.overflow = 'hidden';
+                        
+                        // Add event listeners for quantity controls
+                        const decreaseBtn = document.getElementById('decrease-quantity');
+                        const increaseBtn = document.getElementById('increase-quantity');
+                        const quantityInput = document.getElementById('product-quantity');
+                        
+                        decreaseBtn.addEventListener('click', function() {
+                            let quantity = parseInt(quantityInput.value);
+                            if (quantity > 1) {
+                                quantityInput.value = quantity - 1;
+                            }
+                        });
+                        
+                        increaseBtn.addEventListener('click', function() {
+                            let quantity = parseInt(quantityInput.value);
+                            quantityInput.value = quantity + 1;
+                        });
+                        
+                        // Add to cart from modal
+                        const addToCartBtn = document.querySelector('.add-to-cart-btn');
+                        addToCartBtn.addEventListener('click', function() {
+                            const productId = this.dataset.id;
+                            const product = productDetails[productId];
+                            const quantity = parseInt(document.getElementById('product-quantity').value);
+                            
+                            // Check if product is already in cart
+                            const existingItem = cart.find(item => item.id === productId);
+                            
+                            if (existingItem) {
+                                existingItem.quantity += quantity;
+                            } else {
+                                cart.push({
+                                    id: productId,
+                                    name: product.name,
+                                    price: product.price,
+                                    image: product.image,
+                                    quantity: quantity
+                                });
+                            }
+                            
+                            updateCart();
+                            
+                            // Animation effect
+                            this.textContent = 'Added!';
+                            this.style.background = '#388E3C';
+                            
+                            setTimeout(() => {
+                                this.textContent = 'Add to Cart';
+                                this.style.background = '';
+                                
+                                // Close modal
+                                productDetailOverlay.classList.remove('show');
+                                document.body.style.overflow = '';
+                            }, 1000);
+                        });
+                        
+                        // Buy now button
+                        const buyNowBtn = document.querySelector('.buy-now-btn');
+                        buyNowBtn.addEventListener('click', function() {
+                            const productId = addToCartBtn.dataset.id;
+                            const product = productDetails[productId];
+                            const quantity = parseInt(document.getElementById('product-quantity').value);
+                            
+                            // Clear cart and add only this product
+                            cart = [{
+                                id: productId,
+                                name: product.name,
+                                price: product.price,
+                                image: product.image,
+                                quantity: quantity
+                            }];
+                            
+                            updateCart();
+                            
+                            // Save cart to localStorage
+                            localStorage.setItem('cart', JSON.stringify(cart));
+                            
+                            // Redirect to checkout page
+                            window.location.href = 'checkout.html';
+                        });
+                    }
+                });
+            });
+            
+            // Close product detail modal
+            productDetailClose.addEventListener('click', function() {
+                productDetailOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+            
+            productDetailOverlay.addEventListener('click', function(e) {
+                if (e.target === productDetailOverlay) {
+                    productDetailOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Payment Success Modal
+            // This will be triggered from checkout.html, but we'll add a demo function here
+            window.showPaymentSuccess = function(paymentMethod, total) {
+                // Set current date
+                const today = new Date();
+                document.getElementById('order-date').textContent = today.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                // Set payment method and total
+                document.getElementById('payment-method').textContent = paymentMethod || 'Credit Card';
+                document.getElementById('order-total').textContent = total || '₹1,247.00';
+                
+                // Show modal
+                paymentSuccessOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            };
+            
+            // Close payment success modal
+            continueShoppingBtn.addEventListener('click', function() {
+                paymentSuccessOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+                
+                // Clear cart
+                cart = [];
+                updateCart();
+            });
+        });
+    </script>
+</body>
+</html>
